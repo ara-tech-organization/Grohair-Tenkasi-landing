@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l \"c:/Users/samyu/Downloads/Thanjavur_public_html \\(1\\)/css/style.css\")"
+    ]
+  }
+}

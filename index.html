@@ -1373,7 +1373,23 @@ West Extension",
         <div class="form-row">
           <div class="col-sm-6">
             <div class="form-group">
-              <input type="time" name="time" class="form-control bg-transparent p-4" required />
+              <div class="d-flex" style="gap: 8px;">
+                <select name="hour" class="custom-select bg-transparent px-3" style="height: 47px; color: #fff; flex: 1;" required>
+                  <option value="" disabled selected>HH</option>
+                  <option value="01">01</option><option value="02">02</option><option value="03">03</option>
+                  <option value="04">04</option><option value="05">05</option><option value="06">06</option>
+                  <option value="07">07</option><option value="08">08</option><option value="09">09</option>
+                  <option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                </select>
+                <select name="minute" class="custom-select bg-transparent px-3" style="height: 47px; color: #fff; flex: 1;" required>
+                  <option value="" disabled selected>MM</option>
+                  <option value="00">00</option><option value="15">15</option>
+                  <option value="30">30</option><option value="45">45</option>
+                </select>
+                <select name="ampm" class="custom-select bg-transparent px-3" style="height: 47px; color: #fff; flex: 1;" required>
+                  <option value="AM">AM</option><option value="PM">PM</option>
+                </select>
+              </div>
             </div>
           </div>
 
@@ -1403,6 +1419,16 @@ West Extension",
         </div>
 
         <div class="form-row">
+          <div class="col-12">
+            <div class="d-flex align-items-center" style="gap:10px;">
+              <canvas id="captchaCanvas" width="140" height="45" style="border:1px solid rgba(255,255,255,0.3);border-radius:4px;cursor:pointer;" title="Click to refresh"></canvas>
+              <input type="text" id="captchaInput" class="form-control bg-transparent" placeholder="Enter code" autocomplete="off" required style="height:45px;color:#fff;flex:1;" />
+            </div>
+            <small id="captchaError" style="color:#ff6b6b;display:none;">Incorrect captcha. Please try again.</small>
+          </div>
+        </div>
+
+        <div class="form-row mt-3">
           <div class="col-sm-6">
             <button class="btn btn-primary btn-block" type="submit" id="submitBtn" style="height:47px">
               Book Appointment
@@ -1623,8 +1649,50 @@ West Extension",
 const form = document.getElementById("appointmentForm");
 const submitBtn = document.getElementById("submitBtn");
 
+let captchaText = "";
+function generateCaptcha() {
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789";
+  captchaText = "";
+  for (let i = 0; i < 5; i++) captchaText += chars.charAt(Math.floor(Math.random() * chars.length));
+  const canvas = document.getElementById("captchaCanvas");
+  const ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#1a1a2e";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  for (let i = 0; i < 30; i++) {
+    ctx.fillStyle = "rgba(255,255,255," + (Math.random() * 0.3) + ")";
+    ctx.fillRect(Math.random() * canvas.width, Math.random() * canvas.height, 2, 2);
+  }
+  for (let i = 0; i < 3; i++) {
+    ctx.strokeStyle = "rgba(255,255,255,0.15)";
+    ctx.beginPath();
+    ctx.moveTo(Math.random() * canvas.width, Math.random() * canvas.height);
+    ctx.lineTo(Math.random() * canvas.width, Math.random() * canvas.height);
+    ctx.stroke();
+  }
+  for (let i = 0; i < captchaText.length; i++) {
+    ctx.save();
+    ctx.font = (20 + Math.random() * 6) + "px monospace";
+    ctx.fillStyle = ["#ff6b6b","#ffd93d","#6bcb77","#4d96ff","#ff922b"][i % 5];
+    ctx.translate(18 + i * 24, 30 + (Math.random() * 8 - 4));
+    ctx.rotate((Math.random() - 0.5) * 0.4);
+    ctx.fillText(captchaText[i], 0, 0);
+    ctx.restore();
+  }
+  document.getElementById("captchaError").style.display = "none";
+}
+document.getElementById("captchaCanvas").addEventListener("click", generateCaptcha);
+generateCaptcha();
+
 form.addEventListener("submit", function (e) {
   e.preventDefault();
+  const userInput = document.getElementById("captchaInput").value.trim();
+  if (userInput !== captchaText) {
+    document.getElementById("captchaError").style.display = "block";
+    generateCaptcha();
+    document.getElementById("captchaInput").value = "";
+    return;
+  }
   submitBtn.disabled = true;
   submitBtn.innerText = "Please Wait...";
 
@@ -1633,6 +1701,7 @@ form.addEventListener("submit", function (e) {
   showToast();
 
   form.reset();
+  generateCaptcha();
   submitBtn.disabled = false;
   submitBtn.innerText = "Book Appointment";
 });

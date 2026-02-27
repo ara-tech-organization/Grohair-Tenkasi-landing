@@ -20815,3 +20815,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   display: none;
 }
 }
+
+.custom-select.bg-transparent option {
+  color: #333;
+  background: #fff;
+}
