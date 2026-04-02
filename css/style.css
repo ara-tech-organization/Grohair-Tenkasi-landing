@@ -10168,7 +10168,12 @@ input[type="time"] {
 
 input[type="date"]::-webkit-calendar-picker-indicator,
 input[type="time"]::-webkit-calendar-picker-indicator {
-  filter: invert(1); /* Makes the icon white */
+  filter: brightness(0);
+  cursor: pointer;
+}
+
+#make-appointment input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
   cursor: pointer;
 }
 /******* Bootstrap Theming ********/
@@ -20342,7 +20347,12 @@ input[type="time"] {
 
 input[type="date"]::-webkit-calendar-picker-indicator,
 input[type="time"]::-webkit-calendar-picker-indicator {
-  filter: invert(1); /* Makes the icon white */
+  filter: brightness(0);
+  cursor: pointer;
+}
+
+#make-appointment input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
   cursor: pointer;
 }
 
