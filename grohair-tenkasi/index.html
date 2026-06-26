@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TTZL27PB');</script>
-<!-- End Google Tag Manager -->
     <meta charset="utf-8" />
     <title>Book an Appointment - Best Hair & Skin Clinic in Tenkasi</title>
     <meta name="description" content="Schedule your appointment with GroHair & GloSkin for expert hair and skin care treatments, including PRP therapy, hair transplant, and acne treatment in Tenkasi." />
@@ -28,6 +21,89 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- Customized Bootstrap Stylesheet -->
     <link href="../css/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+      /* Date input calendar icon color */
+      input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(0.6);
+        cursor: pointer;
+      }
+
+      /* Custom Dropdown */
+      .cdd-wrap {
+        position: relative;
+        user-select: none;
+      }
+      .cdd-selected {
+        height: 47px;
+        display: flex;
+        align-items: center;
+        padding: 0 14px;
+        border: 1px solid rgba(255,255,255,0.3);
+        border-radius: 4px;
+        color: #fff;
+        background: transparent;
+        cursor: pointer;
+        font-size: 0.95rem;
+        justify-content: space-between;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .cdd-selected::after {
+        content: "\f107";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        margin-left: 8px;
+        font-size: 0.8rem;
+        opacity: 0.8;
+        flex-shrink: 0;
+      }
+      .cdd-list {
+        display: none;
+        position: absolute;
+        top: calc(100% + 4px);
+        left: 0;
+        right: 0;
+        background: #1e1b19;
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 6px;
+        list-style: none;
+        margin: 0;
+        padding: 4px 0;
+        z-index: 999;
+        max-height: 220px;
+        overflow-y: auto;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      }
+      .cdd-list.open { display: block; }
+      .cdd-list li {
+        padding: 9px 16px;
+        color: #ddd;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background 0.15s;
+      }
+      .cdd-list li:hover { background: rgba(255,255,255,0.08); color: #fff; }
+      .cdd-list li.active { color: #fff; background: rgba(var(--primary-rgb, 220,53,69), 0.25); }
+      .cdd-list li.cdd-group {
+        color: #aaa;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 10px 16px 4px;
+        cursor: default;
+        pointer-events: none;
+      }
+      .cdd-list li.cdd-group:hover { background: transparent; }
+
+      /* Dropdown scrollbar */
+      .cdd-list::-webkit-scrollbar { width: 4px; }
+      .cdd-list::-webkit-scrollbar-track { background: transparent; }
+      .cdd-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.35); border-radius: 4px; }
+      .cdd-list::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.6); }
+
+    </style>
     <script type="text/javascript">
       (function (c, l, a, r, i, t, y) {
         c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
@@ -88,9 +164,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- End Meta Pixel Code -->
   </head>
   <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TTZL27PB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
     <div class="">
       <!-- Topbar Start -->
       <div class="container-fluid bg-light d-none d-lg-block" data-aos="fade-up">
@@ -104,9 +177,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
           <div class="col-lg-6 text-right">
             <div class="d-inline-flex align-items-center">
-              <a class="text-primary px-2" href="https://www.facebook.com/adgrohairgloskinthanjavur" target="_blank"><i class="fab fa-facebook-f"></i></a>
-              <a class="text-primary px-2" href="https://www.instagram.com/adgrohairgloskinthanjavur/" target="_blank"><i class="fab fa-instagram"></i></a>
-              <a class="text-primary pl-2" href="https://www.youtube.com/@AdGrohairGloskinThanjavur" target="_blank"><i class="fab fa-youtube"></i></a>
+              <a class="text-primary px-2" href="https://www.instagram.com/adgrohairgloskintenkasi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a class="text-primary pl-2" href="https://api.whatsapp.com/send?phone=918110956789&text=Hi%20%3A)" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
           </div>
         </div>
@@ -165,43 +237,58 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <div class="form-row mt-3">
                   <div class="col-sm-6">
                     <div class="d-flex" style="gap: 8px;">
-                      <select name="hour" class="custom-select bg-transparent px-3" style="height: 47px; color: #ffffff; flex: 1;" required>
-                        <option value="" disabled selected>HH</option>
-                        <option value="01">01</option><option value="02">02</option><option value="03">03</option>
-                        <option value="04">04</option><option value="05">05</option><option value="06">06</option>
-                        <option value="07">07</option><option value="08">08</option><option value="09">09</option>
-                        <option value="10">10</option><option value="11">11</option><option value="12">12</option>
-                      </select>
-                      <select name="minute" class="custom-select bg-transparent px-3" style="height: 47px; color: #ffffff; flex: 1;" required>
-                        <option value="" disabled selected>MM</option>
-                        <option value="00">00</option><option value="15">15</option>
-                        <option value="30">30</option><option value="45">45</option>
-                      </select>
-                      <select name="ampm" class="custom-select bg-transparent px-3" style="height: 47px; color: #ffffff; flex: 1;" required>
-                        <option value="AM">AM</option><option value="PM">PM</option>
-                      </select>
+                      <!-- Hour -->
+                      <div class="cdd-wrap" style="flex:1">
+                        <div class="cdd-selected" data-name="hour">HH</div>
+                        <ul class="cdd-list">
+                          <li data-val="01">01</li><li data-val="02">02</li><li data-val="03">03</li>
+                          <li data-val="04">04</li><li data-val="05">05</li><li data-val="06">06</li>
+                          <li data-val="07">07</li><li data-val="08">08</li><li data-val="09">09</li>
+                          <li data-val="10">10</li><li data-val="11">11</li><li data-val="12">12</li>
+                        </ul>
+                        <input type="hidden" name="hour" required />
+                      </div>
+                      <!-- Minute -->
+                      <div class="cdd-wrap" style="flex:1">
+                        <div class="cdd-selected" data-name="minute">MM</div>
+                        <ul class="cdd-list">
+                          <li data-val="00">00</li><li data-val="15">15</li>
+                          <li data-val="30">30</li><li data-val="45">45</li>
+                        </ul>
+                        <input type="hidden" name="minute" required />
+                      </div>
+                      <!-- AM/PM -->
+                      <div class="cdd-wrap" style="flex:1">
+                        <div class="cdd-selected" data-name="ampm">AM</div>
+                        <ul class="cdd-list">
+                          <li data-val="AM">AM</li><li data-val="PM">PM</li>
+                        </ul>
+                        <input type="hidden" name="ampm" value="AM" />
+                      </div>
                     </div>
                   </div>
                   <div class="col-sm-6">
-                    <select name="service" id="service" class="custom-select bg-transparent px-4" style="height: 47px; color: #ffffff" required>
-                      <option value="" disabled selected>Select Treatment</option>
-                      <optgroup label="Hair" style="color: rgb(0, 0, 0);">
-                        <option value="Hair Transplant">Hair Transplant</option>
-                        <option value="GFC Treatment">GFC Treatment</option>
-                        <option value="PRP Treatment">PRP Treatment</option>
-                        <option value="Cosmetic Hair System">Cosmetic Hair System</option>
-                        <option value="Oxygen Laser Therapy">Oxygen Laser Therapy</option>
-                        <option value="Other Hair Care Service">Other Hair Care Service</option>
-                      </optgroup>
-                      <optgroup label="Skin" style="color: rgb(0, 0, 0);">
-                        <option value="Hydra Facial">Hydra Facial</option>
-                        <option value="Carbon Laser">Carbon Laser</option>
-                        <option value="Laser Hair Removal">Laser Hair Removal</option>
-                        <option value="Face PRP">Face PRP</option>
-                        <option value="Skin Brightening">Skin Brightening</option>
-                        <option value="Other Skin Care Service">Other Skin Care Service</option>
-                      </optgroup>
-                    </select>
+                    <!-- Treatment -->
+                    <div class="cdd-wrap">
+                      <div class="cdd-selected" data-name="service">Select Treatment</div>
+                      <ul class="cdd-list">
+                        <li class="cdd-group">Hair</li>
+                        <li data-val="Hair Transplant">Hair Transplant</li>
+                        <li data-val="GFC Treatment">GFC Treatment</li>
+                        <li data-val="PRP Treatment">PRP Treatment</li>
+                        <li data-val="Cosmetic Hair System">Cosmetic Hair System</li>
+                        <li data-val="Oxygen Laser Therapy">Oxygen Laser Therapy</li>
+                        <li data-val="Other Hair Care Service">Other Hair Care Service</li>
+                        <li class="cdd-group">Skin</li>
+                        <li data-val="Hydra Facial">Hydra Facial</li>
+                        <li data-val="Carbon Laser">Carbon Laser</li>
+                        <li data-val="Laser Hair Removal">Laser Hair Removal</li>
+                        <li data-val="Face PRP">Face PRP</li>
+                        <li data-val="Skin Brightening">Skin Brightening</li>
+                        <li data-val="Other Skin Care Service">Other Skin Care Service</li>
+                      </ul>
+                      <input type="hidden" name="service" required />
+                    </div>
                   </div>
                 </div>
                 <div class="form-row mt-3">
@@ -284,9 +371,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </div>
               </div>
               <div class="d-flex justify-content-start mt-4 ml-3">
-                <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="https://www.facebook.com/adgrohairgloskinthanjavur" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="https://www.instagram.com/adgrohairgloskinthanjavur/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a class="btn btn-lg btn-primary btn-lg-square" href="https://www.youtube.com/@AdGrohairGloskinThanjavur" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="https://www.instagram.com/adgrohairgloskintenkasi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a class="btn btn-lg btn-primary btn-lg-square" href="https://api.whatsapp.com/send?phone=918110956789&text=Hi%20%3A)" target="_blank"><i class="fab fa-whatsapp"></i></a>
               </div>
             </div>
           </div>
@@ -374,7 +460,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         const minute = document.querySelector('select[name="minute"]').value;
         const ampm = document.querySelector('select[name="ampm"]').value;
         const time = `${hour}:${minute} ${ampm}`;
-        const treatment = document.querySelector('select[name="service"]').value;
+        const treatment = document.querySelector('input[name="service"]').value;
 
         const formData = { name, email, phone, date, time, treatment, message: "", source: "Website Form" };
 
@@ -426,6 +512,51 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script src="../js/main.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script>
+      // Custom dropdowns
+      document.querySelectorAll(".cdd-wrap").forEach(function(wrap) {
+        var selected = wrap.querySelector(".cdd-selected");
+        var list = wrap.querySelector(".cdd-list");
+        var hidden = wrap.querySelector("input[type='hidden']");
+        var placeholder = selected.textContent;
+
+        selected.addEventListener("click", function(e) {
+          e.stopPropagation();
+          document.querySelectorAll(".cdd-list.open").forEach(function(l) {
+            if (l !== list) l.classList.remove("open");
+          });
+          list.classList.toggle("open");
+        });
+
+        list.querySelectorAll("li:not(.cdd-group)").forEach(function(item) {
+          item.addEventListener("click", function() {
+            var val = item.getAttribute("data-val");
+            var label = item.textContent;
+            selected.textContent = label;
+            hidden.value = val;
+            list.querySelectorAll("li").forEach(function(l) { l.classList.remove("active"); });
+            item.classList.add("active");
+            list.classList.remove("open");
+            hidden.dispatchEvent(new Event("change"));
+          });
+        });
+      });
+
+      // AM/PM default value already set; pre-select AM in list
+      document.querySelectorAll(".cdd-wrap").forEach(function(wrap) {
+        var hidden = wrap.querySelector("input[type='hidden']");
+        if (hidden && hidden.value) {
+          var match = wrap.querySelector('li[data-val="' + hidden.value + '"]');
+          if (match) match.classList.add("active");
+        }
+      });
+
+      document.addEventListener("click", function() {
+        document.querySelectorAll(".cdd-list.open").forEach(function(l) {
+          l.classList.remove("open");
+        });
+      });
+    </script>
     <script>AOS.init();</script>
   </body>
 </html>
